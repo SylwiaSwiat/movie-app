@@ -1,38 +1,87 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+
+*{
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+ 
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body{
+  overflow-x: hidden;
+  width: 100vw;
+  height: 100vh;
+  background: #222831;
+  color: #eeeeee;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+::selection{
+  background-color: #003087;
 }
-
-.App-header {
-  background-color: #282c34;
+.app{
   min-height: 100vh;
+  font-family: 'Montserrat', sans-serif;
+}
+.container{
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 180px;
+  margin-bottom: 100px;
+  min-height: 100vh;
+  width: 100vw;
+}
+.hide{
+  display: none;
+}
+.css-yuzg60-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
+  background: #15181d !important;
+}
+.css-yuzg60-MuiButtonBase-root-MuiPaginationItem-root{
+  color: #eeeeee !important;
+}
+.genres{
+  display: flex;
+  color: #eeeeee;
+  margin: 0 100px 20px 100px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.categoriesBtn{
+  background: transparent;
+  color: #eeeeee;
+  border: none;
+cursor: pointer;
+font-size: 14px;
+}
+.pagination{
+  margin-bottom: 100px;
+  display: flex;
+}
+::-webkit-scrollbar {
+  width: .75rem;
 }
 
-.App-link {
-  color: #61dafb;
+::-webkit-scrollbar-track {
+  background-color: #313a47;
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+::-webkit-scrollbar-thumb {
+  background-color: #1c2128;
+  border-radius: 2px;
+}
+@media all and (max-width:850px){
+  .container{
+    margin-top: 220px;
   }
-  to {
-    transform: rotate(360deg);
+  p{
+    font-size: 14px;
+  }
+  .pagination ul{
+    justify-content: center;
+  }
+  .genres{
+    margin: 10px;
   }
 }

@@ -1,0 +1,32 @@
+
+.searchBarContainer{
+   
+    padding: 15px;
+    display: flex;
+    background: #eeeeee;
+    border-radius: 2px;
+}
+.search{
+    outline: none;
+    border: none;
+    background: none;
+    
+    color: #222831;
+    font-size: 20px;
+}
+.searchBarContainer i{
+    font-size: 20px;
+    margin-right: 10px;
+    color: #222831;
+}
+@media all and (max-width:850px){
+    .searchBarContainer{
+        padding: 10px;
+    }
+    .searchBarContainer i{
+        font-size: 14px;
+    }
+    .search{
+        font-size: 14px;
+    }
+}
