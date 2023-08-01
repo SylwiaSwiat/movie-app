@@ -8,9 +8,10 @@
 }
 .item{
     width: 330px;
+    height: 555px;
     display: flex;
     flex-direction: column;
-    margin: 20px 40px !important;
+    margin: 2rem !important;
     background: #15181d;
     box-shadow: rgba(170, 170, 255, 0.1) 0px 1px 0px, rgba(173, 173, 255, 0.1) 0px 8px 24px, rgba(171, 171, 255, 0.1) 0px 16px 48px;
     border-radius: 10px !important;
@@ -40,18 +41,21 @@
 .rateAndYear{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    font-size: 13px;
+    justify-content: center;
     align-items: center;
+    gap: 1rem;
+    font-size: .875rem;
 }
 #rate{
-    padding:6px;
-    padding-top: 4px;
-    border-radius: 50px;
+    padding-top: 1px;
+    border-radius: 50%;
     background: #003087;
     display: flex;
     align-items: center;
     margin-right: 10px;
+    width: 2.25rem;
+    height: 2.25rem;
+    justify-content: center;
 }
 #type{
     text-transform: capitalize;
