@@ -5,8 +5,7 @@ import { apiKey } from "../App";
 const Genres = ({filteredGenres, genres, setGenres, setFilteredGenres, setPage, type}) => {
     const getGenres = async()=>{
         const res  = await fetch(`https://api.themoviedb.org/3/genre/${type}/list?api_key=${apiKey}&language=en-US`)
-        const data = await res.json()
-        console.log(data)
+        const data = await res.json();
         setGenres(data.genres)
     }
 
@@ -31,7 +30,7 @@ setPage(1);
   
     
     return ( <div className="genres">
-          {filteredGenres&& filteredGenres.map((genre)=> <Chip 
+          {filteredGenres &&  filteredGenres.map((genre)=> <Chip 
         variant="outlined"
         label={genre.name} 
         id={genre.id} 

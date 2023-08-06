@@ -23,7 +23,7 @@ const Movies = ({searchItem}) => {
             setNumOfPages(data.total_pages);
         } else{
             const res = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${
-                apiKey}&language=en-US&query=${searchItem}&page=${page}&include_adult=false&&with_genres=${genreUrl}`)
+                apiKey}&language=en-US&query=${searchItem}&page=${page}&include_adult=false&with_genres=${genreUrl}`)
             const data = await res.json()
             setMovies(data.results)
             setNumOfPages(data.total_pages);
@@ -43,7 +43,7 @@ const handleActive = ()=>{
         <div className="container">
             {numOfPages < 1&&(
         <h2>No results</h2>)}
-            {numOfPages >0&&(
+            {numOfPages > 0 && searchItem === '' && (
                 <button onClick={handleActive}
             className='categoriesBtn'>Categories</button>
             )}
@@ -68,10 +68,11 @@ const handleActive = ()=>{
             rate={item.vote_average}
             overview={item.overview}
             setPage={setPage}
+            type='movie'
         />)}
         </div>
         
-        {numOfPages >1&&(
+        {numOfPages > 1 && movies && movies.length && (
             <PaginationComponent setPage={setPage} numOfPages={numOfPages}/>
         )}
             

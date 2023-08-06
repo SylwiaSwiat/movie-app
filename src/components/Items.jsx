@@ -2,7 +2,6 @@ import { imgLink } from "../App";
 import './Item.css'
 import TransitionsModal from './Modal'
 const Items = ({id,title, image, date, type, rate, overview, page, genreUrl}) => {
-    
     return ( 
     <TransitionsModal type={type} id={id} image={image} imgLink={imgLink} page={page} genreUrl={genreUrl} title={title} rate={rate} date={date} overview={overview}>
         <img src={image? `${imgLink}/${image}`: `./images/no picture.png`} alt={title} />
@@ -13,11 +12,9 @@ const Items = ({id,title, image, date, type, rate, overview, page, genreUrl}) =>
         <p id="type">{type}</p>
 <p>{date&&date.split('').slice(0,4)}</p>
         </div>
-        
         </div>
         
     </TransitionsModal> );
 }
  
-export default Items;<div>
-items</div>
+export default Items;

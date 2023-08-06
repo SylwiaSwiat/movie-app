@@ -62,6 +62,7 @@ const Series = ({searchItem}) => {
             date={item.first_air_date || item.release_date}
             rate={item.vote_average}
             overview={item.overview}
+            type='tv'
         />)}
         </div>
         {numOfPages >1&&(

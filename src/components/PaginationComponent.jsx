@@ -10,8 +10,7 @@ const PaginationComponent = ({ setPage, numOfPages = 100 }) => {
         <div className='pagination'>
             <Pagination count={numOfPages}
                 onChange={(e, page) => {
-                    console.log(e.target.dataset.testid, page);
-                    targetValue = e.target.tagName === 'button' ? e.target.textContent : page + 1;
+                    targetValue = e.target.tagName === 'button' ? e.target.textContent : page;
                     handlePageChange(targetValue)
                 }
                 }

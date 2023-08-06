@@ -29,10 +29,12 @@ export default function TransitionsModal({ children, image, imgLink, page, genre
   const handleOpen = () => {
     setOpen(true);
     getVideo();
+    getImage();
   }
   const handleClose = () => setOpen(false);
   const [content, setContent] = useState();
   const [video, setVideo] = useState();
+  const [images, setImages] = useState();
 
   const getMovies = async () => {
     const res = await fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${genreUrl}`)
@@ -46,10 +48,18 @@ export default function TransitionsModal({ children, image, imgLink, page, genre
       setVideo(data.results && data.results[0]?.key)
     }
   }
+
+  const getImage = async () => {
+    if (content) {
+      const res = await fetch(`https://api.themoviedb.org/3/${type}/${id}/images?api_key=${apiKey}&?include_image_language=en`);
+      const data = await res.json();
+      setImages(data.backdrops[0].file_path);
+    }
+  }
   useEffect(() => {
     getMovies();
     // eslint-disable-next-line
-  }, [])
+  }, [type])
 
   return (
     <>
@@ -69,7 +79,8 @@ export default function TransitionsModal({ children, image, imgLink, page, genre
           <Box sx={style}>
             {content && (
               <div className='modalContainer'>
-                <img src={image ? `${imgLink}/${image}` : `./images/no picture.png`} alt="" />
+               {window.innerWidth < 780 && (<img className='mobileImg' src={image ? `${imgLink}/${image}` : `./images/no picture.png`} alt="" />)} 
+                {window.innerWidth >= 780 && (<img className='desktopImg' src={images ? `${imgLink}${images}` : null} alt="" />)}
                 <div className='modalBox'>
                   <h2>{title}</h2>
                   <p id='overview'>{overview ? overview : 'Overview not available'} </p>
