@@ -1,7 +1,5 @@
 const Chip = () => {
-    return ( <>
+  return <></>;
+};
 
-    </> );
-}
- 
 export default Chip;

@@ -2,16 +2,18 @@
     font-size: 16px;
     text-transform: none;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    width: 100%;
 }
 .navContainer ul{
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
     padding: 0;
 }
 .navContainer ul >li{
     list-style: none;
-    margin: 0 50px;
     cursor: pointer;
 }
 .activeLink{
@@ -46,8 +48,5 @@
     }
     .navContainer ul{
         margin-top: 0;
-    }
-    .navContainer ul >li{
-        margin: 0 20px;
     }
 }

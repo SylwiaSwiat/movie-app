@@ -6,7 +6,7 @@ import Movies from './components/Movies';
 import Series from './components/Series';
 import { useState } from 'react';
 export const imgLink = "https://image.tmdb.org/t/p/w500"
- export const apiKey = '139d01b05b0da0f486bb336ef87b9e2f';
+export const apiKey = process.env.REACT_APP_API_KEY;
 function App() {
   const [searchItem, setSearchItem] = useState('');
   const handleTop = ()=>{
