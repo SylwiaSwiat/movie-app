@@ -58,7 +58,7 @@ const Series = ({ searchItem }) => {
         />
       )}
       <div className="itemsBox">
-        {movies.map((item) => (
+        {movies?.map((item) => (
           <Items
             page={page}
             setPage={setPage}

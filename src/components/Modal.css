@@ -1,14 +1,15 @@
-.modalContainer{
+.modalContainer {
     width: 100%;
     height: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 1rem;
     border-radius: 10px;
 }
-.desktopImg {
+
+.mobileImg {
     position: absolute;
     top: 0;
     left: 0;
@@ -20,77 +21,101 @@
     border-radius: 10px;
     box-shadow: rgba(170, 170, 255, 0.1) 0px 1px 0px, rgba(173, 173, 255, 0.1) 0px 8px 24px, rgba(171, 171, 255, 0.1) 0px 16px 48px;
 }
-.modalBox{
+
+.modalBox {
     display: flex;
     flex-direction: column;
     margin-left: 20px;
     align-items: center;
-    margin: 0 auto;
+    margin: 0;
 }
-.modalBox .rateAndYear p{
+
+.modalBox .rateAndYear p {
     margin: 0 10px;
 }
-.modalBox h2{
-    font-size: 36px;
+
+.modalBox h2 {
+    font-size: 1rem;
+    margin: .5rem;
 }
-.modalBox p{
-    font-size: 20px;
+
+.modalBox p {
+    font-size: .75rem;
 }
-.videoBtn{
+
+.videoBtn {
     box-shadow: rgba(97, 97, 97, 0.16) 0px 3px 6px, rgba(72, 73, 75, 0.23) 0px 3px 6px;
     background: transparent;
     border: 2px solid #003087;
-    padding: 20px;
-    width: 200px;
-    margin-top: 50px;
     transition: all .5s ease-in-out;
     cursor: pointer;
     border-radius: 10px;
+    margin-top: .625rem;
+    padding: .5rem;
+    width: auto;
 }
+
 .videoBtn:hover,
-.videoBtn:active{
+.videoBtn:active {
     background: #003087;
 }
-.videoBtn a{
+
+.videoBtn a {
     text-decoration: none;
     color: #eeeeee;
-    font-size: 16px;
+    font-size: .75rem;
 }
-#overview{
-    margin-bottom: 50px;
+
+#overview {
+    margin: 0 0 10px 0;
 }
-@media all and (max-width:850px){
-    .modalContainer{
-        flex-direction: column;
-    }
-    .modalBox{
-        margin: 0;
-    }
-    .modalBox h2{
-        font-size: 18px;
-        margin: 8px;
-    }
-    .modalBox p{
-        font-size: 12px;
-    }
-    #overview{
-        margin: 0 0 10px 0;
-    }
-    #rate,
-    #date,
-    #type{
-        font-size: 10px;
-    }
-    .videoBtn{
-        margin-top: 10px;
-        padding: 8px;
-        width: auto;
-    }
-    .videoBtn a{
-        font-size: 12px;
+
+#rate,
+#date,
+#type {
+    font-size: .625rem;
     }
 
-    .mobileImg {
+@media all and (min-width:850px){
+    .modalContainer {
+        flex-direction: row;
+    }
+
+    .modalBox {
+        margin: 0 auto;
+    }
+
+    .modalBox h2 {
+        font-size: 2rem;
+        margin: 0;
+    }
+
+    .modalBox p {
+        font-size: 1.25rem;
+    }
+
+    #overview {
+        margin: 1rem 0 3rem;
+        line-height: 1.4;
+    }
+
+    #rate,
+    #date,
+    #type {
+        font-size: 1rem;
+    }
+    
+    .videoBtn {
+        padding: 1.25rem;
+        width: 12.5rem;
+        margin-top: 3rem;
+    }
+
+    .videoBtn a {
+        font-size: 1rem;
+    }
+
+    .desktopImg {
         position: absolute;
         top: 0;
         left: 0;
