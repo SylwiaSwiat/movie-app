@@ -1,64 +1,86 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
 
-*{
+* {
   box-sizing: border-box;
   scroll-behavior: smooth;
  
 }
 
-body{
+body {
   overflow-x: hidden;
   width: 100vw;
   height: 100vh;
   background: #222831;
   color: #eeeeee;
 }
-::selection{
+
+::selection {
   background-color: #003087;
 }
-.app{
+
+.app {
   min-height: 100vh;
   font-family: 'Montserrat', sans-serif;
 }
-.container{
+
+.container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  margin-top: 180px;
-  margin-bottom: 100px;
+  margin-top: 14rem;
+  margin-bottom: 6rem;
   min-height: 100vh;
   width: 100vw;
 }
-.hide{
-  display: none;
-}
-.css-yuzg60-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
-  background: #15181d !important;
+
+p {
+  font-size: .875rem;
 }
 
-.genres{
+.hide {
+  display: none;
+}
+
+.pagination .css-yuzg60-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
+  background: #15181d;
+}
+
+.pagination .css-1v2lvtn-MuiPaginationItem-root {
+  color: #eeeeee;
+}
+
+.genres {
   display: flex;
   color: #eeeeee;
-  margin: 0 100px 20px 100px;
+  margin: .75rem;
   flex-wrap: wrap;
   justify-content: center;
 }
-.categoriesBtn{
+
+.categoriesBtn {
+  margin: 1rem 0;
   background: transparent;
   color: #eeeeee;
   border: none;
-cursor: pointer;
-font-size: 14px;
+  cursor: pointer;
+  font-size: 14px;
 }
-.pagination{
-  margin-bottom: 100px;
+
+.pagination {
+  margin-bottom: 6rem;
   display: flex;
 }
-.pagination ul li button{
-  color: #eeeeee !important;
+
+.pagination ul {
+  justify-content: center;
 }
+
+.pagination ul li button {
+  color: #eeeeee;
+}
+
 ::-webkit-scrollbar {
   width: .75rem;
 }
@@ -72,17 +94,13 @@ font-size: 14px;
   background-color: #1c2128;
   border-radius: 2px;
 }
-@media all and (max-width:850px){
-  .container{
-    margin-top: 220px;
+
+@media all and (min-width:850px){
+  .container {
+    margin-top: 11rem;
   }
-  p{
-    font-size: 14px;
-  }
-  .pagination ul{
-    justify-content: center;
-  }
-  .genres{
-    margin: 10px;
+
+  .genres {
+    margin: 0 6rem;
   }
 }

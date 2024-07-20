@@ -6,19 +6,19 @@
     justify-content: center;
     margin: 0 1rem 6.25rem;
 }
-.item {
+.itemsBox .item {
     width: 14rem;
     height: 25rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-between !important;
-    margin: 1.5rem !important;
+    justify-content: space-between;
+    margin: 1.5rem;
     background: #15181d;
     box-shadow: rgba(170, 170, 255, 0.1) 0px 1px 0px, rgba(173, 173, 255, 0.1) 0px 8px 24px, rgba(171, 171, 255, 0.1) 0px 16px 48px;
-    border-radius: 10px !important;
+    border-radius: 10px;
     cursor: pointer;
-    transition:.3s all ease-in-out !important;
-    padding: 0 !important;
+    transition:.3s all ease-in-out;
+    padding: 0;
 }
 .item img {
     width: 100%;
@@ -75,7 +75,7 @@
     text-transform: capitalize;
 }
 @media all and (min-width:850px){
-    .item {
+   .itemsBox .item {
         width: 20rem;
         height: 34rem;
     }
