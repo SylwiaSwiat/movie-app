@@ -1,6 +1,6 @@
 import "./Header.css";
 import Nav from "./Nav";
-import SearchBar from "./SearchBarr";
+import SearchBar from "./SearchBar";
 
 const Header = ({ handleTop, searchItem, setSearchItem }) => {
   return (

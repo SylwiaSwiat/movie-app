@@ -28,7 +28,8 @@
 }
 
     .search {
-        font-size: 1.25;
+        font-size: 1.25rem;
+        width: 100%;
     }
 
     .searchBarContainer i {
