@@ -63,14 +63,7 @@
     font-size: .875rem;
     max-height: 2rem;
 }
-#rate {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: .25rem .5rem;
-    border-radius: 6px;
-    background: #003087;
-}
+
 #type {
     text-transform: capitalize;
 }

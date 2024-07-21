@@ -1,39 +1,42 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import Items from "./Items";
 import PaginationComponent from "./PaginationComponent";
 import { apiKey } from "../App";
 
-const Trendings = ({ searchItem }) => {
-  const [movies, setMovies] = useState([]);
+const Persons = ({ searchItem }) => {
+  const [persons, setPersons] = useState([]);
   const [page, setPage] = useState(1);
   const [numOfPages, setNumOfPages] = useState();
-  const url = `https://api.themoviedb.org/3/trending/all/day?api_key=139d01b05b0da0f486bb336ef87b9e2f&page=${page}`;
 
-  const getTrending = async () => {
+  const url = `https://api.themoviedb.org/3/trending/person/day?api_key=139d01b05b0da0f486bb336ef87b9e2f&page=${page}`;
+
+  const getPersons = async () => {
     if (searchItem === "") {
       const res = await fetch(url);
       const data = await res.json();
-      setMovies(data.results);
+      setPersons(data.results);
+      setNumOfPages(500);
     } else {
       const res = await fetch(
-        `https://api.themoviedb.org/3/search/multi?api_key=${apiKey}&language=en-US&query=${searchItem}&page=${page}&include_adult=false`
+        `https://api.themoviedb.org/3/search/person?api_key=${apiKey}&language=en-US&query=${searchItem}&page=${page}&include_adult=false`
       );
       const data = await res.json();
-      setMovies(data.results);
-      console.log(movies);
-      setNumOfPages(data.total_pages);
+      setPersons(data.results);
+      setNumOfPages(500);
     }
   };
 
   useEffect(() => {
-    getTrending();
-    //eslint-disable-next-line
+    getPersons();
+    // eslint-disable-next-line
   }, [page, searchItem]);
+
   return (
     <div className="container">
       {numOfPages < 1 && <h2>No results</h2>}
+
       <div className="itemsBox">
-        {movies?.map((item) => (
+        {persons?.map((item) => (
           <Items
             page={page}
             key={item.id}
@@ -41,15 +44,19 @@ const Trendings = ({ searchItem }) => {
             title={item.title || item.name}
             image={item.poster_path || item.profile_path}
             date={item.first_air_date || item.release_date}
-            type={item.media_type}
             rate={item.vote_average}
             overview={item.overview}
+            setPage={setPage}
+            type="person"
           />
         ))}
       </div>
-      <PaginationComponent setPage={setPage} numOfPages={numOfPages} />
+
+      {numOfPages > 1 && persons && persons.length && (
+        <PaginationComponent setPage={setPage} numOfPages={numOfPages} />
+      )}
     </div>
   );
 };
 
-export default Trendings;
+export default Persons;

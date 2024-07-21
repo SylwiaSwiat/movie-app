@@ -21,14 +21,18 @@ const Series = ({ searchItem }) => {
       const res = await fetch(url);
       const data = await res.json();
       setMovies(data.results);
-      setNumOfPages(data.total_pages);
+      setNumOfPages(500);
     } else {
+      console.log("get movies!");
+      setPage(1);
       const res = await fetch(
-        `https://api.themoviedb.org/3/search/tv?api_key=${apiKey}&language=en-US&query=${searchItem}&page=${page}&include_adult=false`
+        `https://api.themoviedb.org/3/search/tv?api_key=${apiKey}&language=en-US&query=${searchItem}&page=1&include_adult=false`
       );
+
+      console.log(page);
       const data = await res.json();
       setMovies(data.results);
-      setNumOfPages(data.total_pages);
+      setNumOfPages(500);
     }
   };
   const handleActive = () => {

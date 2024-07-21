@@ -21,14 +21,15 @@ const Movies = ({ searchItem }) => {
       const res = await fetch(url);
       const data = await res.json();
       setMovies(data.results);
-      setNumOfPages(data.total_pages);
+      setNumOfPages(500);
+      console.log(data);
     } else {
       const res = await fetch(
         `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=en-US&query=${searchItem}&page=${page}&include_adult=false&with_genres=${genreUrl}`
       );
       const data = await res.json();
       setMovies(data.results);
-      setNumOfPages(data.total_pages);
+      setNumOfPages(500);
       setIsActive(false);
     }
   };

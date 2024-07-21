@@ -5,6 +5,7 @@ const Nav = () => {
   const [isActiveTrending, setIsActiveTrending] = useState(false);
   const [isActiveMovies, setISActiveMovies] = useState(false);
   const [isActiveSeries, setIsActiveSeries] = useState(false);
+  const [isActivePersons, setIsActivePersons] = useState(false);
 
   const handleActiveNav = () => {
     const link = window.location.pathname;
@@ -13,14 +14,22 @@ const Nav = () => {
       setIsActiveTrending(false);
       setIsActiveSeries(false);
       setISActiveMovies(true);
+      setIsActivePersons(false);
     } else if (link === "/series") {
       setISActiveMovies(false);
       setIsActiveTrending(false);
       setIsActiveSeries(true);
+      setIsActivePersons(false);
+    } else if (link === "/persons") {
+      setISActiveMovies(false);
+      setIsActiveSeries(false);
+      setIsActiveTrending(false);
+      setIsActivePersons(true);
     } else {
       setISActiveMovies(false);
       setIsActiveSeries(false);
       setIsActiveTrending(true);
+      setIsActivePersons(false);
     }
   };
 
@@ -53,6 +62,14 @@ const Nav = () => {
             className={`navLink ${isActiveSeries && "activeLink"}`}
           >
             Series
+          </Link>{" "}
+        </li>
+        <li onClick={handleActiveNav}>
+          <Link
+            to="/persons"
+            className={`navLink ${isActivePersons && "activeLink"}`}
+          >
+            Persons
           </Link>{" "}
         </li>
       </ul>

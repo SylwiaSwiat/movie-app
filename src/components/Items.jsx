@@ -32,7 +32,7 @@ const Items = ({
       <div className="itemInfo">
         <h2>{title}</h2>
         <div className="rateAndYear">
-          <p id="rate">{rate ? rate.toFixed(1) : 0}</p>
+          <p id="rate">{rate && rate > 0 ? rate.toFixed(1) : null}</p>
           <p id="type">{type}</p>
           <p>{date && date.split("").slice(0, 4)}</p>
         </div>

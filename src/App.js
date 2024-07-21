@@ -4,6 +4,7 @@ import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Trendings from './components/Trendings';
 import Movies from './components/Movies';
 import Series from './components/Series';
+import Persons from './components/Persons';
 import { useState } from 'react';
 export const imgLink = "https://image.tmdb.org/t/p/w500"
 export const apiKey = process.env.REACT_APP_API_KEY;
@@ -22,6 +23,7 @@ function App() {
       <Route path='/' element={<Trendings searchItem={searchItem} setSearchItem={setSearchItem}/>}></Route>
       <Route path='/movies' element={<Movies searchItem={searchItem} setSearchItem={setSearchItem}/>} ></Route>
       <Route path='/series' element={<Series searchItem={searchItem} setSearchItem={setSearchItem}/>}></Route>
+      <Route path='/persons' element={<Persons searchItem={searchItem} setSearchItem={setSearchItem}/>}></Route>
     </Routes>
     </Router>
     </div>

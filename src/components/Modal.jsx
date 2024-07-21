@@ -40,13 +40,26 @@ export default function TransitionsModal({
   const [open, setOpen] = useState(false);
   const handleOpen = () => {
     setOpen(true);
-    getVideo();
+    if (type === "person") {
+      getPersonDetail();
+    } else {
+      getVideo();
+    }
+
     getImage();
   };
   const handleClose = () => setOpen(false);
   const [content, setContent] = useState();
   const [video, setVideo] = useState();
   const [images, setImages] = useState();
+  const [personDetails, setPsersonDetails] = useState([]);
+  const personDetailsUrl = `https://api.themoviedb.org/3/person/${id}?api_key=${apiKey}&language=en-US`;
+
+  const getPersonDetail = async () => {
+    const res = await fetch(personDetailsUrl);
+    const data = await res.json();
+    setPsersonDetails(data);
+  };
 
   const getMovies = async () => {
     const res = await fetch(
@@ -71,7 +84,12 @@ export default function TransitionsModal({
         `https://api.themoviedb.org/3/${type}/${id}/images?api_key=${apiKey}&?include_image_language=en`
       );
       const data = await res.json();
-      setImages(data.backdrops[0].file_path);
+
+      if (type === "person") {
+        return;
+      } else {
+        setImages(data.backdrops[0].file_path);
+      }
     }
   };
   useEffect(() => {
@@ -99,7 +117,7 @@ export default function TransitionsModal({
           <Box sx={style}>
             {content && (
               <div className="modalContainer">
-                {window.innerWidth < 780 && (
+                {window.innerWidth < 780 && type !== "person" && (
                   <img
                     className="mobileImg"
                     src={
@@ -117,14 +135,46 @@ export default function TransitionsModal({
                 )}
                 <div className="modalBox">
                   <h2>{title}</h2>
-                  <p id="overview">
-                    {overview ? overview : "Overview not available"}{" "}
-                  </p>
-                  <div className="rateAndYear">
-                    <p id="rate">{rate ? rate.toFixed(1) : 0}</p>
-                    <p id="type">{type}</p>
-                    <p id="date">{date && date.split("").slice(0, 4)}</p>
-                  </div>
+                  {type === "person" && (
+                    <div className="personDetails">
+                      <div>
+                        <img
+                          src={
+                            image
+                              ? `${imgLink}/${image}`
+                              : `./images/no picture.png`
+                          }
+                          alt=""
+                        />
+                      </div>
+                      <div>
+                        {personDetails.birthday && (
+                          <p>Birthday: {personDetails.birthday}</p>
+                        )}
+                        {personDetails.deathday && (
+                          <p>Deathday: {personDetails.deathday}</p>
+                        )}
+
+                        <p id="overview">
+                          {personDetails.biography
+                            ? personDetails.biography
+                            : "Overview not available"}{" "}
+                        </p>
+                      </div>
+                    </div>
+                  )}
+                  {type !== "person" && (
+                    <p id="overview">
+                      {overview ? overview : "Overview not available"}{" "}
+                    </p>
+                  )}
+                  {type !== "person" && (
+                    <div className="rateAndYear">
+                      <p id="rate">{rate ? rate.toFixed(1) : 0}</p>
+                      <p id="type">{type}</p>
+                      <p id="date">{date && date.split("").slice(0, 4)}</p>
+                    </div>
+                  )}
                   {video && typeof video !== "undefined" && (
                     <button className="videoBtn">
                       <a
