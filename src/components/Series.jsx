@@ -23,13 +23,11 @@ const Series = ({ searchItem }) => {
       setMovies(data.results);
       setNumOfPages(500);
     } else {
-      console.log("get movies!");
       setPage(1);
       const res = await fetch(
         `https://api.themoviedb.org/3/search/tv?api_key=${apiKey}&language=en-US&query=${searchItem}&page=1&include_adult=false`
       );
 
-      console.log(page);
       const data = await res.json();
       setMovies(data.results);
       setNumOfPages(500);

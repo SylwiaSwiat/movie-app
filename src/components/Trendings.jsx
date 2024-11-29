@@ -20,7 +20,6 @@ const Trendings = ({ searchItem }) => {
       );
       const data = await res.json();
       setMovies(data.results);
-      console.log(movies);
       setNumOfPages(data.total_pages);
     }
   };

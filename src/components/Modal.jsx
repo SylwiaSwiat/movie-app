@@ -74,7 +74,9 @@ export default function TransitionsModal({
         `https://api.themoviedb.org/3/${type}/${id}/videos?api_key=${apiKey}&language=en-US`
       );
       const data = await res.json();
-      setVideo(data.results && data.results[0]?.key);
+      const trailers = data.results.filter((el) => el.type === "Trailer");
+
+      setVideo(data.results && trailers[0]?.key);
     }
   };
 
