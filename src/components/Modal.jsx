@@ -90,7 +90,7 @@ export default function TransitionsModal({
       if (type === "person") {
         return;
       } else {
-        setImages(data.backdrops[0].file_path);
+        setImages(data.backdrops[0]?.file_path);
       }
     }
   };
